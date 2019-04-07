@@ -1,0 +1,12 @@
+{% extends "jediAcademy/base.html" %}
+
+{% block content %}
+    <div class="row" style="padding-top: 50px;">
+        <form action="{% url 'candidate_test' %}" method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Далее</button>
+        </form>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "jediAcademy/base.html" %}
+
+{% block content %}
+    <div class="row" id="row" style="padding-top: 50px;">
+        <div class="col-md-6">
+            <a href="{% url 'jedi_select' %}" type="button" id="displayJediForm" class="btn btn-outline-primary">Для
+                джедаев</a>
+        </div>
+
+        <div class="col-md-6">
+            <a href="{% url 'candidate_add' %}" type="button" id="displayCandidateForm" class="btn btn-outline-primary">Для
+                кандидатов</a>
+
+        </div>
+
+    </div>
+
+    <div class="row" id="row" style="padding-top: 50px;">
+        <div class="col-md-6">
+            <a href="{% url 'jedi_list' %}" type="button" id="displayJediForm" class="btn btn-outline-primary">Список
+                всех джедаев</a>
+        </div>
+    </div>
+
+    <div class="row" id="row" style="padding-top: 50px;">
+        <div class="col-md-6">
+            <a href="{% url 'jedi_with_padawans_list' %}" type="button" id="displayJediForm" class="btn btn-outline-primary">Список
+                джедаев с несколькими падаванами</a>
+        </div>
+    </div>
+{% endblock %}

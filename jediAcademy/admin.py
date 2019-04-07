@@ -12,7 +12,7 @@ admin.site.register(Answer)
 class AnswerInline(admin.TabularInline):
     fk_name = "test"
     model = Answer
-    extra = 3
+    extra = 0
 
 
 @admin.register(PadawanTest)

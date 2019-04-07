@@ -12,20 +12,6 @@ class Planet(models.Model):
         verbose_name_plural = "Планеты"
 
 
-class Candidate(models.Model):
-    name = models.CharField(max_length=30, verbose_name="имя")
-    planet = models.ForeignKey(Planet, on_delete=models.CASCADE, verbose_name="планета обитания")
-    age = models.PositiveSmallIntegerField(verbose_name="возраст")
-    email = models.EmailField(verbose_name="email")
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = "Кандидат"
-        verbose_name_plural = "Кандидаты"
-
-
 class Jedi(models.Model):
     name = models.CharField(max_length=30, verbose_name="имя")
     planet = models.ForeignKey(Planet, on_delete=models.CASCADE, verbose_name="планета, на которой он обучает")
@@ -38,12 +24,27 @@ class Jedi(models.Model):
         verbose_name_plural = "Джедаи"
 
 
+class Candidate(models.Model):
+    name = models.CharField(max_length=30, verbose_name="имя")
+    planet = models.ForeignKey(Planet, on_delete=models.CASCADE, verbose_name="планета обитания")
+    age = models.PositiveSmallIntegerField(verbose_name="возраст")
+    email = models.EmailField(verbose_name="email")
+    master = models.ForeignKey(Jedi, on_delete=models.CASCADE, blank=True, null=True, verbose_name="учитель")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Кандидат"
+        verbose_name_plural = "Кандидаты"
+
+
 class PadawanTest(models.Model):
-    code = models.CharField(max_length=30, unique=True, verbose_name="код ордена")
+    code = models.CharField(max_length=30, blank=True, null=True, verbose_name="код ордена")
     padawan = models.OneToOneField(Candidate, on_delete=models.CASCADE, verbose_name="кандидат в падаваны")
 
     def __str__(self):
-        return self.code
+        return '{}, {}'.format(self.code, self.padawan)
 
     class Meta:
         verbose_name = "Тестовое испытание падавана"

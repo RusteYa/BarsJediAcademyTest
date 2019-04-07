@@ -1,0 +1,21 @@
+{% extends "jediAcademy/base.html" %}
+
+{% block content %}
+    <div class="row" style="padding-top: 50px;">
+        {% for answ in answers %}
+            {{ answ.question }}
+            {{ answ.answer }}
+        {% endfor %}
+    </div>
+
+    <div class="row" style="padding-top: 50px;">
+        {% if status %}
+            <h3>{{ status }}</h3>
+        {% endif %}
+        <form action="" method="POST" class="post-form">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Зачислить</button>
+        </form>
+
+    </div>
+{% endblock %}

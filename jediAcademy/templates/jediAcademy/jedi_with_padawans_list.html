@@ -1,0 +1,9 @@
+{% extends "jediAcademy/base.html" %}
+
+{% block content %}
+    <div class="row" id="row" style="padding-top: 50px;">
+        {% for jedi in jedi_list %}
+            {{ jedi }} {{ jedi.candidate_set.count }}
+        {% endfor %}
+    </div>
+{% endblock %}
