@@ -2,20 +2,33 @@
 
 {% block content %}
     <div class="row" style="padding-top: 50px;">
-        {% for answ in answers %}
-            {{ answ.question }}
-            {{ answ.answer }}
-        {% endfor %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Вопрос</th>
+                <th scope="col">Ответ кандидата</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for answ in answers %}
+                <tr>
+                    <td>{{ answ.question }}</td>
+                    <td>{{ answ.answer }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 
     <div class="row" style="padding-top: 50px;">
-        {% if status %}
-            <h3>{{ status }}</h3>
-        {% endif %}
         <form action="" method="POST" class="post-form">
             {% csrf_token %}
             <button type="submit" class="btn btn-primary">Зачислить</button>
         </form>
-
+    </div>
+    <div class="row" style="padding-top: 50px;">
+        {% if status %}
+            <h3>{{ status }}</h3>
+        {% endif %}
     </div>
 {% endblock %}

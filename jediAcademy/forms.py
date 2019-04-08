@@ -24,5 +24,4 @@ class JediSelectForm(forms.Form):
 
 
 class CandidateSelectForm(forms.Form):
-    candidate = forms.ModelChoiceField(queryset=Candidate.objects.all(),
-                                       label='Выберите кандидата в падаваны для просмотра его ответов')
+    candidate = forms.ModelChoiceField(queryset=Candidate.objects.all(), label='Кандидат')

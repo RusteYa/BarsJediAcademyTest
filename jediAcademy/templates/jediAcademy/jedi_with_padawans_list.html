@@ -2,8 +2,21 @@
 
 {% block content %}
     <div class="row" id="row" style="padding-top: 50px;">
-        {% for jedi in jedi_list %}
-            {{ jedi }} {{ jedi.candidate_set.count }}
-        {% endfor %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Имя джедая</th>
+                <th scope="col">Число падаванов</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for jedi in jedi_list %}
+                <tr>
+                    <td>{{ jedi }}</td>
+                    <td>{{ jedi.candidate_set.count }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}

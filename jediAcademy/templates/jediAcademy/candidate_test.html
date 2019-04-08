@@ -2,11 +2,13 @@
 
 {% block content %}
     <div class="row" style="padding-top: 50px;">
+        <h2>Ответьте на вопросы</h2>
+    </div>
+    <div class="row" style="padding-top: 50px;">
         <form action="{% url 'candidate_test' %}" method="POST" class="post-form">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Далее</button>
+            <button type="submit" class="btn btn-primary">Ответить</button>
         </form>
-
     </div>
 {% endblock %}

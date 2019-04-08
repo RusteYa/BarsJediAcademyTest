@@ -86,12 +86,16 @@ class CandidateAnswerView(View):
             limit = 3
             padawans_count = Candidate.objects.filter(master=jedi).count()
             if padawans_count < limit:
-                padawan.master = jedi
-                padawan.save()
-                send_mail('Зачисление в падаваны', 'Вы зачислены в падаваны к {}'.format(jedi),
-                          settings.EMAIL_HOST_USER, [padawan.email])
-                return render(request, self.template_name,
-                              {'answers': answers, 'status': "Зачислен"})
+                if padawan.master is None:
+                    padawan.master = jedi
+                    padawan.save()
+                    send_mail('Зачисление в падаваны', 'Вы зачислены в падаваны к {}'.format(jedi),
+                              settings.EMAIL_HOST_USER, [padawan.email])
+                    return render(request, self.template_name,
+                                  {'answers': answers, 'status': "Зачислен"})
+                else:
+                    return render(request, self.template_name,
+                                  {'answers': answers, 'status': "Кандидат уже является падаваном"})
             else:
                 return render(request, self.template_name,
                               {'answers': answers, 'status': "Превышено ограничение на число падаванов"})
