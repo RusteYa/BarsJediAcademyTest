@@ -139,7 +139,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, '../jediAcademy/static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
