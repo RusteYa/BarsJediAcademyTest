@@ -75,10 +75,21 @@ WSGI_APPLICATION = 'BarsJediAcademyTest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'de3vv7vt715oo8',
+        'USER': 'tjyxrlpcjeiwum',
+        'PASSWORD': 'a5a19062f8c4fa39b794088e6c3087b431c92347b1f66941de81f6e604e0f524',
+        'HOST': 'ec2-54-228-243-238.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
