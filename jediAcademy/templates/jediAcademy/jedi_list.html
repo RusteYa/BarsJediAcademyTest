@@ -1,20 +1,22 @@
 {% extends "jediAcademy/base.html" %}
 
 {% block content %}
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Имя джедая</th>
-            <th scope="col">Число падаванов</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for jedi in jedi_list %}
+    <div class="row" id="row" style="padding-top: 50px;">
+        <table class="table">
+            <thead>
             <tr>
-                <td>{{ jedi }}</td>
-                <td>{{ jedi.candidate_set.count }}</td>
+                <th scope="col">Имя джедая</th>
+                <th scope="col">Число падаванов</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for jedi in jedi_list %}
+                <tr>
+                    <td>{{ jedi }}</td>
+                    <td>{{ jedi.candidate_set.count }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
