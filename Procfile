@@ -1,0 +1,1 @@
+web: gunicorn BarsJediAcademyTest.wsgi --log-file -
