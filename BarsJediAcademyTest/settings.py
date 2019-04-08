@@ -25,7 +25,7 @@ SECRET_KEY = 'pv@e(vpqssz-u*h$*gl=96i!pn4eqy+e2&ynvc%$^jf%!iq7kx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bars-jedi-academy.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
